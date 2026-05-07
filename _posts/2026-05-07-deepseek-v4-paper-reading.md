@@ -3,6 +3,7 @@ title: "DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence
 date: 2026-05-07
 permalink: /posts/2026/05/deepseek-v4-paper-reading/
 project: paper-study
+excerpt: "阅读 DeepSeek-V4 论文，梳理 Hybrid Attention、mHC、Muon Optimizer、state cache 与稀疏 Attention Kernel 协同设计。"
 tags:
   - DeepSeek
   - 论文学习
