@@ -141,6 +141,59 @@
   }
 }
 
+.page__toc {
+  .toc {
+    padding: 1.25em;
+    border-radius: 8px;
+  }
+
+  .nav__title {
+    margin-bottom: 0.75em;
+    font-size: $type-size-5;
+    font-weight: 700;
+  }
+
+  .toc__menu {
+    font-size: $type-size-6;
+
+    a {
+      margin: 0.12rem 0;
+      padding: 0.45rem 0.75rem;
+      color: var(--global-text-color);
+      font-size: $type-size-6;
+      font-weight: 600;
+      line-height: 1.45;
+      border-bottom: 0;
+      border-left: 3px solid transparent;
+      border-radius: 4px;
+      text-decoration: none !important;
+
+      &:hover,
+      &:focus {
+        color: var(--global-link-color);
+        background-color: var(--global-border-color);
+        border-left-color: var(--global-link-color);
+        text-decoration: none !important;
+      }
+    }
+
+    > li > a {
+      font-weight: 700;
+    }
+
+    li ul > li a {
+      padding-left: 1.75rem;
+      font-size: $type-size-6;
+      font-weight: 500;
+    }
+
+    li ul li ul > li a {
+      padding-left: 2.75rem;
+      font-size: $type-size-7;
+    }
+  }
+}
+
 /*
    Author profile and links
    ========================================================================== */
