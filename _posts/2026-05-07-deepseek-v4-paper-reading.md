@@ -11,11 +11,11 @@ tags:
   - Attention
 ---
 
+{% include toc icon="list" title="目录" position="inline" %}
+
 ![image-20260507111847279](/images/3.png)
 
 Deepseek V4问世，在不同测试中取得了较好的效果，本文阅读论文记录学习Deepseek V4新架构。
-
-{% include toc icon="list" title="目录" %}
 
 ## 创新点
 
