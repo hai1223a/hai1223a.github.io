@@ -59,6 +59,17 @@
   font-size: $type-size-7;
 }
 
+.page__footer-stats {
+  margin: 0.5em 0;
+  font-family: $global-font-family;
+  font-size: $type-size-7;
+
+  > span {
+    display: inline-block;
+    margin-right: 1em;
+  }
+}
+
 .page__footer-follow {
   ul {
     margin: 0;
