@@ -9,14 +9,13 @@ tags:
   - 论文学习
   - 大模型
   - Attention
-toc: true
-toc_label: "目录"
-toc_icon: "list"
 ---
 
 ![image-20260507111847279](/images/3.png)
 
 Deepseek V4问世，在不同测试中取得了较好的效果，本文阅读论文记录学习Deepseek V4新架构。
+
+{% include toc icon="list" title="目录" %}
 
 ## 创新点
 
