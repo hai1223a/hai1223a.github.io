@@ -34,8 +34,7 @@ Deepseek V4问世，在不同测试中取得了较好的效果，本文阅读论
 
 $$
 H \in \mathbb{R}^{n \times d},
-\quad
-Q, K, V \in \mathbb{R}^{n \times \mathrm{hidden}}
+\quad Q, K, V \in \mathbb{R}^{n \times \mathrm{hidden}}
 $$
 
 ```text
@@ -47,8 +46,7 @@ V = H W_V
 然后将其中的 **KV** 矩阵存储起来就是 **KV cache**，然后通过下面的 attention 公式得到输出。
 
 $$
-\operatorname{Attention}(Q, K, V)
-=
+\operatorname{Attention}(Q, K, V) =
 \operatorname{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
 $$
 
@@ -84,8 +82,7 @@ $$
 \left[
 S^a_{mi:m(i+1)-1};
 S^b_{m(i-1):mi-1}
-\right]
-=
+\right] =
 \operatorname{Softmax}_{\mathrm{row}}
 \left(
 \left[
@@ -96,10 +93,8 @@ Z^b_{m(i-1):mi-1} + B^b
 $$
 
 $$
-C^{\mathrm{Comp}}_i
-=
-\sum_{j=mi}^{m(i+1)-1} S^a_j \odot C^a_j
-+
+C^{\mathrm{Comp}}_i =
+\sum_{j=mi}^{m(i+1)-1} S^a_j \odot C^a_j +
 \sum_{j=m(i-1)}^{mi-1} S^b_j \odot C^b_j
 $$
 
@@ -127,10 +122,8 @@ $$
 \mathbf{q}_{t,2}^I;
 \dots;
 \mathbf{q}_{t,n_h^I}^I
-\right]
-=
-\mathbf{q}_t^I
-=
+\right] =
+\mathbf{q}_t^I =
 c_t^Q \cdot W^{IUQ}
 $$
 
@@ -142,23 +135,18 @@ w^I_{t,1};
 w^I_{t,2};
 \dots;
 w^I_{t,n^I_h}
-\right]
-=
-\mathbf{w}^I_t
-=
+\right] =
+\mathbf{w}^I_t =
 \mathbf{h}_t \cdot W^w
 $$
 
 $$
-I_{t,s}
-=
+I_{t,s} =
 \sum_{h=1}^{n^I_h}
-w^I_{t,h}
-\cdot
+w^I_{t,h} \cdot
 \operatorname{ReLU}
 \left(
-\mathbf{q}^I_{t,h}
-\cdot
+\mathbf{q}^I_{t,h} \cdot
 K^{\mathrm{IComp}}_s
 \right)
 $$
@@ -210,9 +198,7 @@ $$
 
 $$
 C = H \cdot W^{KV},
-\quad
-C_i^{\mathrm{Comp}}
-=
+\quad C_i^{\mathrm{Comp}} =
 \sum_{j=m'i}^{m'(i+1)-1} S_j \odot C_j
 $$
 
@@ -334,9 +320,9 @@ $$
 
 ![image-20260507173936220](/images/9.jpg)
 
-mHC是在DHC上的改良，包括： 
-1. 将$A_r$，也就是论文中的$B_l$约束为双随机矩阵——$B_l$ 每个元素 ≥ 0；$B_l$ 每一行之和 = 1； $B_l$ 每一列之和 = 1 
-2. 将$A_m$，也就是论文中的$A_l$，使用了sigmod约束，保证其值在0-1之间。 
+mHC是在DHC上的改良，包括：
+1. 将$A_r$，也就是论文中的$B_l$约束为双随机矩阵——$B_l$ 每个元素 ≥ 0；$B_l$ 每一行之和 = 1； $B_l$ 每一列之和 = 1
+2. 将$A_m$，也就是论文中的$A_l$，使用了sigmod约束，保证其值在0-1之间。
 3. 将$B$，也就是论文中的$C_l$，使用了2*sigmod约束，保证其值在0-2之间。
 4. mHC生成三个矩阵动态部分的方法是： 将输入$X_l$（n个d维变量）进行展平后**RMSNorm**归一化，然后线性变化生成原始动态参数，与静态参数相加，最后对原始三个矩阵进行上面的约束投影。
 
