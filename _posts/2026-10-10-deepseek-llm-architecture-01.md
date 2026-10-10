@@ -86,17 +86,22 @@ DeepSeek V2将FFN替换成了DeepSeek MoE。该MoE由细粒度的Routed Experts�
 
 DeepSeek V2的数据规模如下：
 
-| 参数                          | DeepSeek-V2 配置 |
-| ----------------------------- | ---------------- |
-| Attention Head 数量           | 128              |
-| Head的内容维度                | 128              |
-| Head的RoPE维度                | 64               |
-| Head的运算时的维度            | 128+64           |
-| KVcache内容维度（c_KV）       | 512              |
-| KVcache RoPE维度（q_K）       | 64               |
-| Q的压缩维度（c_Q）            | 1536             |
-| MoE层数                       | 59               |
-| 每层共享专家数量              | 2                |
-| 每层routed专家数量            | 160              |
-| 每个token选择的routed专家数量 | 6                |
-| 每个专家的中间维度            | 1536             |
+| 参数                          | DeepSeek-V2 配置    |
+| ----------------------------- | ------------------- |
+| Transformer 总层数            | 60（前一层为FFN层） |
+| Hidden Dimension              | 5120                |
+| Attention Head 数量           | 128                 |
+| Head的内容维度                | 128                 |
+| Head的RoPE维度                | 64                  |
+| Head的运算时的维度            | 128+64              |
+| KVcache内容维度（c_KV）       | 512                 |
+| KVcache RoPE维度（q_K）       | 64                  |
+| Q的压缩维度（c_Q）            | 1536                |
+| MoE层数                       | 59                  |
+| 每层共享专家数量              | 2                   |
+| 每层routed专家数量            | 160                 |
+| 每个token选择的routed专家数量 | 6                   |
+| 每个专家的中间维度            | 1536                |
+| 模型总参数量                  | 236B                |
+| 每个 Token 激活的参数量       | 21B                 |
+| 最大上下文                    | 128K                |
